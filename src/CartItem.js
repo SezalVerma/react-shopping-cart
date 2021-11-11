@@ -4,6 +4,8 @@ class CartItem extends Component {
   render() {
     //   Object Destructuring
     const { price, title, qty, img } = this.props.product;
+    const { product, onDecreaseQty, onIncreaseQty, onDeleteProduct } =
+      this.props;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -17,18 +19,19 @@ class CartItem extends Component {
             <img
               alt="increase"
               className="action-icons"
-              onClick={() => this.props.onIncreaseQty(this.props.product)}
+              onClick={() => onIncreaseQty(product)}
               src="https://cdn-icons.flaticon.com/png/512/1008/premium/1008978.png?token=exp=1636613211~hmac=0332940e00df1da642ea0ea14a88c90c"
             />
             <img
               alt="decrease"
               className="action-icons"
-              onClick={() => this.props.onDecreaseQty(this.props.product)}
+              onClick={() => onDecreaseQty(product)}
               src="https://cdn-icons.flaticon.com/png/512/2920/premium/2920674.png?token=exp=1636613331~hmac=ea30ffab54473b5cf85d2788d5330dcd"
             />
             <img
               alt="delete"
               className="action-icons"
+              onClick={() => onDeleteProduct(product.id)}
               src="https://cdn-icons-png.flaticon.com/512/565/565491.png"
             />
           </div>

@@ -53,6 +53,16 @@ class Cart extends Component {
       products,
     });
   };
+  handleDeleteProduct = (id) => {
+    const { products } = this.state;
+
+    // add all products to items [] whose id doesnt match to given id,
+    const items = products.filter((item) => item.id !== id);
+
+    this.setState({
+      products: items,
+    });
+  };
   render() {
     const { products } = this.state;
     return (
@@ -64,6 +74,7 @@ class Cart extends Component {
               key={product.id}
               onIncreaseQty={this.handleIncreaseQty}
               onDecreaseQty={this.handleDecreaseQty}
+              onDeleteProduct={this.handleDeleteProduct}
             />
           );
         })}
