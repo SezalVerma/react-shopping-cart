@@ -30,12 +30,42 @@ class Cart extends Component {
       ],
     };
   }
+  handleIncreaseQty = (product) => {
+    const { products } = this.state;
+    // get index of desired product in arr of products
+    const index = products.indexOf(product);
+    products[index].qty += 1;
+    // set products in state to modified products
+    this.setState({
+      products: products,
+    });
+  };
+  handleDecreaseQty = (product) => {
+    const { products } = this.state;
+    const index = products.indexOf(product);
+    // if qty is 0, dont decrease
+    if (products[index].qty === 0) {
+      return;
+    }
+    products[index].qty -= 1;
+    // when key & value are same, pass once
+    this.setState({
+      products,
+    });
+  };
   render() {
     const { products } = this.state;
     return (
       <div className="cart">
         {products.map((product) => {
-          return <CartItem product={product} key={product.id} />;
+          return (
+            <CartItem
+              product={product}
+              key={product.id}
+              onIncreaseQty={this.handleIncreaseQty}
+              onDecreaseQty={this.handleDecreaseQty}
+            />
+          );
         })}
       </div>
     );
