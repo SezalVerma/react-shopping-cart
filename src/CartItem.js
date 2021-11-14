@@ -18,13 +18,13 @@ const CartItem = (props) => {
             alt="increase"
             className="action-icons"
             onClick={() => onIncreaseQty(product)}
-            src="https://cdn-icons.flaticon.com/png/512/1008/premium/1008978.png?token=exp=1636613211~hmac=0332940e00df1da642ea0ea14a88c90c"
+            src="https://cdn-icons-png.flaticon.com/128/1828/1828919.png"
           />
           <img
             alt="decrease"
             className="action-icons"
             onClick={() => onDecreaseQty(product)}
-            src="https://cdn-icons.flaticon.com/png/512/2920/premium/2920674.png?token=exp=1636613331~hmac=ea30ffab54473b5cf85d2788d5330dcd"
+            src="https://cdn-icons-png.flaticon.com/128/561/561179.png"
           />
           <img
             alt="delete"
